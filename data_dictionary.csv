@@ -1,0 +1,13 @@
+column_name,data_type,description,source_table,transformation_logic
+provider,STRING,Cloud provider name (AWS, Azure, GCP),All Raw Tables,Static mapping based on source file
+billing_period,DATE,The start date of the billing month,All Raw Tables,Parsed from source usage start date
+resource_id,STRING,Unique identifier for the cloud resource,All Raw Tables,Mapped from ResourceId (AWS), InstanceId (Azure), etc.
+service_name,STRING,Name of the cloud service (e.g., Amazon EC2),All Raw Tables,Mapped from ProductName/MeterCategory
+usage_amount,FLOAT,Quantity of resource used,All Raw Tables,Cast to float from source UsageQuantity
+usage_unit,STRING,Unit of measure (Hrs, GB, etc.),All Raw Tables,Standardized to FOCUS units
+cost,FLOAT,The unblended cost of the usage,All Raw Tables,Cast to float from source Cost/PreTaxCost
+effective_price,FLOAT,Calculated unit price,Derived,Cost divided by Usage Amount
+region,STRING,Geographic region of the resource,All Raw Tables,Mapped from AvailabilityZone or Location
+tags,STRING,JSON string of resource tags,All Raw Tables,Extracted or coalesced from raw tag columns
+usage_category,STRING,High-level category (Compute, Storage),Derived,Lookup based on Service Name
+cost_category,STRING,Type of charge (Usage, Tax, Support),Derived,Logic based on RecordType/ChargeType
