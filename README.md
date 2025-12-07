@@ -18,10 +18,13 @@ This project simulates the core data engine of a modern FinOps platform. It inge
 * **FOCUS Schema**: Industry standard for billing normalization.
 
 ## 🚀 Key Features
-1.  **FOCUS Normalization:** Unifies AWS `lineItem/ProductCode`, Azure `MeterCategory`, and GCP `Service Description` into a single semantic layer.
-2.  **Automated Data Quality:** 40+ checks for nulls, drift, and schema violations.
-3.  **Cost Optimization:** SQL models that identify idle RDS instances, unattached EBS volumes, and rightsizing opportunities.
-4.  **AI Integration:** Python-based anomaly detection pipeline to flag spend spikes before the invoice arrives.
+1.  **Synthetic Data Engine:** Includes data_generator.py which algorithmically creates 90 days of hourly/daily billing data. It simulates weekend seasonality, resource drift, and injected cost spikes to rigorously test the Anomaly Detection and Forecasting modules.
+2.  **FOCUS Normalization:** Unifies AWS `lineItem/ProductCode`, Azure `MeterCategory`, and GCP `Service Description` into a single semantic layer.
+3.  **Automated Data Quality:** 40+ checks for nulls, drift, and schema violations.
+4.  **Cost Optimization:** SQL models that identify idle RDS instances, unattached EBS volumes, and rightsizing opportunities.
+5.  **AI Integration:** Python-based anomaly detection pipeline to flag spend spikes before the invoice arrives.
+
+   g modules.
 
 ## 📋 Repository Structure
 * `/data/`: Synthetic datasets mimicking real cloud billing exports.
